@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Client Management System</h1>
+            <div class="header-controls">
+                <button id="addClientBtn" class="btn primary">Add New Client</button>
+                <div class="filter-controls">
+                    <label>Filter by Status:</label>
+                    <select id="statusFilter">
+                        <option value="all">All</option>
+                        <option value="not_confirmed">Not Confirmed</option>
+                        <option value="in_process">In Process</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                <button id="loadSampleBtn" class="btn secondary" onclick="clientManager.addSampleData()">Load Sample Data</button>
+            </div>
+        </header>
+
+        <!-- Client Form Modal -->
+        <div id="clientFormModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add New Client</h2>
+                <form id="clientForm">
+                    <div class="form-group">
+                        <label for="clientName">Client Name*</label>
+                        <input type="text" id="clientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number*</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address*</label>
+                        <textarea id="address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="workType">Work Type*</label>
+                        <input type="text" id="workType" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" id="price">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status">
+                            <option value="not_confirmed">Not Confirmed</option>
+                            <option value="in_process">In Process</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn primary">Save Client</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Client List -->
+        <div class="client-list">
+            <table id="clientsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Work Type</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="clientsTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
